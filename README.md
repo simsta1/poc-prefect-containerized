@@ -1,3 +1,5 @@
+![MIT License](https://img.shields.io/badge/Organization-Mitwelten-green)
+
 # easy-flow-containerized
 Proof of concept for easy containerized flow with prefect
 
