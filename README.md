@@ -20,7 +20,7 @@ Build images from Dockerfiles for each repo or application containing a prefect 
 ```bash
 docker build . -f <your-Dockerfile> --tag custom-worker-image
 ```
-**Remark:** Make sure that the named tag corresponds with the one given in the `docker-compose.yaml`
+**Remark:** Make sure that the named tag corresponds with the ones given in the `docker-compose.yaml` for each agent.
 
 ### Build orion UI with 
 ```bash
