@@ -35,7 +35,7 @@ services:
     entrypoint: ["prefect", "orion", "start"]
     environment:
       - PREFECT_ORION_API_HOST=0.0.0.0
-      - PREFECT_API_URL=http://orion:4200/api
+      - PREFECT_API_URL=http://localhost:4200/api
       - PREFECT_ORION_DATABASE_CONNECTION_URL=postgresql+asyncpg://postgres:postgres@database:5432/orion
     ports:
       - 4200:4200
