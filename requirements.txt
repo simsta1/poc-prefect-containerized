@@ -1,0 +1,4 @@
+jupyterlab
+pandas
+prefect
+numpy
