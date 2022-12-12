@@ -8,7 +8,7 @@ RUN apt-get install -y wget tzdata
 WORKDIR /root
 
 # copy content from local repo
-COPY .. .
+COPY . .
 
 # install relevant packages
 RUN python -m pip install -r requirements.txt
