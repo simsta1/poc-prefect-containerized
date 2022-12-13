@@ -29,27 +29,27 @@ Now, the prefect deployments will be made within each container as the correct p
 
 ```bash
 # flow1
+cd flow1
 # run container
 docker run -it --rm -v $PWD:/root/ flow1-image 
 # inside container
-cd flow1
 prefect deployment build pipeline:integer_pipeline -n flow1-deployment -q flow1-queue
 ```
 ```bash
 # flow2
+cd ../flow2
 # run container
 docker run -it --rm -v $PWD:/root/ flow2-image 
 # inside container
-cd flow2
 prefect deployment build pipeline:string_pipeline -n flow2-deployment -q flow2-queue
 ```
 
 ```bash
 # flow3
+cd ../flow3
 # run container
 docker run -it --rm -v $PWD:/root/ flow3-image 
 # inside container
-cd flow3
 prefect deployment build pipeline:cuda_pipeline -n flow3-deployment -q flow3-queue
 ```
 **Remark**: The working queue names need to be consistent with the queue names in the `docker-compose.yaml`
@@ -76,9 +76,14 @@ Check the if the deployments are available in the orion UI under deployments (ht
 
 ### 6. Start Agents
 ```bash
+# start agents separately
 docker compose --profile flow1-agent up
 docker compose --profile flow2-agent up
 docker compose --profile flow3-agent up
+```
+```bash
+# start agents all together
+docker compose --profile agent up
 ```
 Check the working queues in the Orion UI. If the queues are marked as <span style="color:green">Healthy</span>, than the agents are listening to the UI.
 
