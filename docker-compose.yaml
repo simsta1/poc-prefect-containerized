@@ -46,36 +46,36 @@ services:
   ## Prefect Agent pipeline 1
   ## These services need to be adjusted according to a dockerfile and image with correct builds i.e. Yolov5
   agent1:
-    image: custom-worker-image
+    image: flow1-image
     build:
       context: .
-      dockerfile: pipeline.Dockerfile
+      dockerfile: /flow1/flow1.Dockerfile
     restart: always
-    entrypoint: ["prefect", "agent", "start", "-q", "integer-pipeline"]
+    entrypoint: ["prefect", "agent", "start", "-q", "flow1-queue"]
     environment:
       - PREFECT_API_URL=http://orion:4200/api
-    profiles: ["agent"]
+    profiles: ["flow1-agent"]
 
   ## Prefect Agent pipeline 2
   agent2:
-    image: custom-worker-image
+    image: flow2-image
     build:
       context: .
-      dockerfile: pipeline.Dockerfile
+      dockerfile: /flow2/flow2.Dockerfile
     restart: always
-    entrypoint: ["prefect", "agent", "start", "-q", "string-pipeline"]
+    entrypoint: ["prefect", "agent", "start", "-q", "flow2-queue"]
     environment:
       - PREFECT_API_URL=http://orion:4200/api
-    profiles: ["agent"]
+    profiles: ["flow2-agent"]
 
   ## Sample agent using GPU with nvidia docker container
   agent3:
-    image: pollinator-ml-image
+    image: flow3-image
     build:
       context: .
-      dockerfile: pollinator.Dockerfile
+      dockerfile: /flow3/gpu.Dockerfile
     restart: always
-    entrypoint: ["prefect", "agent", "start", "-q", "pollinator-pipeline"]
+    entrypoint: ["prefect", "agent", "start", "-q", "flow3-queue"]
     environment:
       - PREFECT_API_URL=http://orion:4200/api
     deploy:
@@ -85,7 +85,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    profiles: ["pollinator-agent"]
+    profiles: ["flow3-agent"]
     
   ### Prefect CLI
   cli:
