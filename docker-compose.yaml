@@ -54,7 +54,7 @@ services:
     entrypoint: ["prefect", "agent", "start", "-q", "flow1-queue"]
     environment:
       - PREFECT_API_URL=http://orion:4200/api
-    profiles: ["flow1-agent"]
+    profiles: ["flow1-agent", "agent"]
 
   ## Prefect Agent pipeline 2
   agent2:
@@ -66,7 +66,7 @@ services:
     entrypoint: ["prefect", "agent", "start", "-q", "flow2-queue"]
     environment:
       - PREFECT_API_URL=http://orion:4200/api
-    profiles: ["flow2-agent"]
+    profiles: ["flow2-agent", "agent"]
 
   ## Sample agent using GPU with nvidia docker container
   agent3:
@@ -85,7 +85,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    profiles: ["flow3-agent"]
+    profiles: ["flow3-agent", "agent"]
     
   ### Prefect CLI
   cli:
