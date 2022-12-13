@@ -48,7 +48,7 @@ services:
   agent1:
     image: flow1-image
     build:
-      context: .
+      context: /flow1/
       dockerfile: /flow1/flow1.Dockerfile
     restart: always
     entrypoint: ["prefect", "agent", "start", "-q", "flow1-queue"]
@@ -60,7 +60,7 @@ services:
   agent2:
     image: flow2-image
     build:
-      context: .
+      context: /flow2/
       dockerfile: /flow2/flow2.Dockerfile
     restart: always
     entrypoint: ["prefect", "agent", "start", "-q", "flow2-queue"]
@@ -72,7 +72,7 @@ services:
   agent3:
     image: flow3-image
     build:
-      context: .
+      context: /flow3/
       dockerfile: /flow3/gpu.Dockerfile
     restart: always
     entrypoint: ["prefect", "agent", "start", "-q", "flow3-queue"]
