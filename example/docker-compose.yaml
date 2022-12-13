@@ -48,8 +48,8 @@ services:
   agent1:
     image: flow1-image
     build:
-      context: /flow1/
-      dockerfile: /flow1/flow1.Dockerfile
+      context: ./flow1
+      dockerfile: ./flow1/flow1.Dockerfile
     restart: always
     entrypoint: ["prefect", "agent", "start", "-q", "flow1-queue"]
     environment:
