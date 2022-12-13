@@ -67,6 +67,25 @@ services:
     environment:
       - PREFECT_API_URL=http://orion:4200/api
     profiles: ["agent"]
+
+  ## Sample agent using GPU with nvidia docker container
+  agent3:
+    image: pollinator-ml-image
+    build:
+      context: .
+      dockerfile: pollinator.Dockerfile
+    restart: always
+    entrypoint: ["prefect", "agent", "start", "-q", "pollinator-pipeline"]
+    environment:
+      - PREFECT_API_URL=http://orion:4200/api
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    profiles: ["pollinator-agent"]
     
   ### Prefect CLI
   cli:
