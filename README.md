@@ -1,5 +1,5 @@
 # poc-prefect-containerized
->Proof of concept for simple containerized flows with prefect in a local environment. The repo structure can be used as a template and the flow* folders removed respectively.
+>Proof of concept for simple containerized flows with [prefect](https://docs.prefect.io/) in a local environment. The repo structure can be used as a template and the example folder removed respectively.
 
 ## Pre-Requisites
 - Docker installed, if run with cuda -> nvidia-docker installed
