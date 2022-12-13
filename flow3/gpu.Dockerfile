@@ -1,4 +1,4 @@
-FROM ultralytics/yolov5:latest
+FROM pytorch/pytorch:latest
 
 RUN apt-get update
 ARG DEBIAN_FRONTEND=noninteractive
