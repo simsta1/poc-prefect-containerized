@@ -1,6 +1,5 @@
 # poc-prefect-containerized
->Proof of concept for an easy containerized flow with prefect in a local environment.
-The repo structure can be used as a template and the flow* folders removed respectively.
+>Proof of concept for simple containerized flows with prefect in a local environment. The repo structure can be used as a template and the flow* folders removed respectively.
 
 ## Pre-Requisites
 - Docker installed, if run with cuda -> nvidia-docker installed
@@ -11,7 +10,7 @@ The repo structure can be used as a template and the flow* folders removed respe
 
 Use this repo structure as template and copy your data flow repository inside this structure.
 
-1. Clone Repos with prefect flows
+1. Clone Repos with prefect flows inside root
 2. Build Images from Repo Dockerfiles
     - Make sure naming of images is equal to image names in `docker-compose.yaml`
 3. Run Images in container and build prefect deployments
@@ -76,3 +75,5 @@ Check the working queues in the Orion UI. If the queues are marked as <span styl
 https://github.com/rpeden/prefect-docker-compose
 
 https://github.com/rpeden/prefect-docker-compose/issues/1
+
+https://docs.prefect.io/
