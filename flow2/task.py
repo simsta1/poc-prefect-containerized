@@ -1,10 +1,7 @@
 import random
 import string
 
-import pandas as pd
-
 from prefect import task
-
 
 
 @task
