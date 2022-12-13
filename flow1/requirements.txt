@@ -1,4 +1,2 @@
-jupyterlab
-pandas
 prefect>=2.7.1
 numpy
